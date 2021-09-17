@@ -1,3 +1,2 @@
 # Sales Analysis Portfolio Project
-
-![image info](https://ibb.co/GFfxzWj)
+<a href="https://ibb.co/2jqYD2G"><img src="https://i.ibb.co/rZkfCPD/summary.png" alt="summary" border="0"></a>
