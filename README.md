@@ -13,8 +13,32 @@ Following tables were extracted using SQL in order to create data model fulfilli
 
 SQL queries for cleaning and transformation necessary data are represented below:
 
-## DIM_Calendar:
+#### DIM_Calendar:
 ```SQL
-SELECT
-FROM
+SELECT 
+  [DateKey], 
+  [FullDateAlternateKey] AS Date, 
+  -- [DayNumberOfWeek], 
+  [EnglishDayNameOfWeek] AS Day, 
+  -- [SpanishDayNameOfWeek], 
+  -- [FrenchDayNameOfWeek], 
+  -- [DayNumberOfMonth], 
+  -- [DayNumberOfYear], 
+  [WeekNumberOfYear] AS WeekNr, 
+  [EnglishMonthName] AS Month, 
+  LEFT([EnglishMonthName], 3) AS MonthShort, 
+  -- [SpanishMonthName], 
+  -- [FrenchMonthName], 
+  [MonthNumberOfYear] AS MonthNo, 
+  [CalendarQuarter] AS Quarter, 
+  [CalendarYear] AS Year -- [CalendarSemester], 
+  -- [FiscalQuarter], 
+  -- [FiscalYear], 
+  -- [FiscalSemester]
+FROM 
+  [AdventureWorksDW2019].[dbo].[DimDate] 
+WHERE 
+  CalendarYear >= 2019
 ```
+
+
