@@ -181,3 +181,5 @@ All of the data were loaded to Power BI --- FACT_Budget and FACT_InternetSales w
 # Sales Management Dashboard
 Final sales management dashboard contains an overview page and two other pages representing necessary details and visualizations such as sales over time, per customers and per products.
 
+https://user-images.githubusercontent.com/90852362/133932026-4e3e4b9f-26cf-4317-a45a-cf5dc936a8f1.mov
+
