@@ -178,3 +178,6 @@ All of the data were loaded to Power BI --- FACT_Budget and FACT_InternetSales w
 
 <img src = "https://github.com/aakolesnikov/Sales_Analysis---power_BI-SQL/blob/501c35dde7a1d14bcc586ecbf9d48342f89737b7/pictures/Data_Model.png">
 
+# Sales Management Dashboard
+Final sales management dashboard contains an overview page and two other pages representing necessary details and visualizations such as sales over time, per customers and per products.
+
