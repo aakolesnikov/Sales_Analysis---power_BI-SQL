@@ -1,5 +1,5 @@
 # Sales Analysis Portfolio Project
-<a href="https://ibb.co/M1Drntt"><img src="https://i.ibb.co/c8c0JZZ/Dashboard.png" alt="Dashboard" border="0"></a>
+
 
 # Business Request & User Stories
 The main request was an executive sales report for sales management team. Power BI dashboard was created condisering several user's stories:
