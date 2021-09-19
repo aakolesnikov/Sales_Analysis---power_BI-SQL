@@ -13,3 +13,8 @@ Following tables were extracted using SQL in order to create data model fulfilli
 
 SQL queries for cleaning and transformation necessary data are represented below:
 
+## DIM_Calendar:
+```SQL
+SELECT
+FROM
+```
