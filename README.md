@@ -171,3 +171,7 @@ ORDER BY
 OrderDateKey ASC 
 ```
 # Data Model
+Data model screenshot can be seen below. All of the data were loaded to Power BI --- FACT_Budget and FACT_InternetSales were connected to all of the necessary DIM tables.
+
+
+
