@@ -1,5 +1,5 @@
 # Sales Analysis Portfolio Project
-!<img src = "https://github.com/aakolesnikov/Sales_Analysis---power_BI-SQL/blob/9a27a2d33b7f321796dba6f06ee2227c92a23acb/pictures/Collage.jpg">
+<img src = "https://github.com/aakolesnikov/Sales_Analysis---power_BI-SQL/blob/9d71c29c0f622ef947339fbdf97643e3f160f5bf/pictures/collage.png">
 
 
 # Business Request & User Stories
