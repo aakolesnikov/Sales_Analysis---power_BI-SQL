@@ -9,7 +9,7 @@ The main request was an executive sales report for sales management team. Power 
 3) "Folow sales over time against budget" --- graphs and KPIs comparing against budget
 
 # Data Cleaning & Transformation (SQL)
-Following tables were extracted using SQL in order to create data model fulfilling the the business needs and analysis purposes. Sales budgets data were provided in Excel format and connected to the data model further.
+Following tables were extracted using SQL in order to create data model fulfilling the business needs and analysis purposes. Sales budgets data were provided in Excel format and connected to the data model further.
 
 SQL queries for cleaning and transformation necessary data are represented below:
 
