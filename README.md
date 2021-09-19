@@ -176,5 +176,5 @@ Data model screenshot can be seen below.
 
 All of the data were loaded to Power BI --- FACT_Budget and FACT_InternetSales were connected to all of the necessary DIM tables.
 
-
+<img src = "https://github.com/aakolesnikov/Sales_Analysis---power_BI-SQL/blob/501c35dde7a1d14bcc586ecbf9d48342f89737b7/pictures/Data_Model.png">
 
