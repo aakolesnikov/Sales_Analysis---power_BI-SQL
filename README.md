@@ -41,7 +41,7 @@ FROM
 WHERE 
   CalendarYear >= 2019
 ```
-#### DIM_Calendar:
+#### DIM_Customer
 ```SQL
 -- Cleaning DimCustomer table -- 
 SELECT 
@@ -83,3 +83,90 @@ ORDER BY
   CustomerKey ASC --- ordering list by [CustomerKey]
 ```
 
+#### DIM_Product:
+```SQL
+-- Cleaning DimProduct table -- 
+SELECT 
+  p.[ProductKey], 
+  p.[ProductAlternateKey] AS ProductItemCode, 
+  -- [ProductSubcategoryKey], 
+  -- [WeightUnitMeasureCode], 
+  -- [SizeUnitMeasureCode], 
+  p.[EnglishProductName] AS [Product Name],
+  ps.EnglishProductSubcategoryName AS [Sub Category], --- joined from DimProductSubcategory
+  pc.EnglishProductCategoryName AS [Category], --- joined from DimProductCategory
+  -- [SpanishProductName], 
+  -- [FrenchProductName], 
+  -- [StandardCost], 
+  -- [FinishedGoodsFlag], 
+  p.[Color] AS [Product Color],
+  -- [SafetyStockLevel], 
+  -- [ReorderPoint], 
+  -- [ListPrice], 
+  p.[Size] AS [Product Size], 
+  -- [SizeRange], 
+  -- [Weight], 
+  -- [DaysToManufacture], 
+  p.[ProductLine] AS [Product Line], 
+  -- [DealerPrice], 
+  -- [Class], 
+  -- [Style], 
+  p.[ModelName] AS [Product Model Name], 
+  -- [LargePhoto], 
+  p.[EnglishDescription] AS [Product Description], 
+  -- [FrenchDescription], 
+  -- [ChineseDescription], 
+  -- [ArabicDescription], 
+  -- [HebrewDescription], 
+  -- [ThaiDescription], 
+  -- [GermanDescription], 
+  -- [JapaneseDescription], 
+  -- [TurkishDescription], 
+  -- [StartDate], 
+  -- [EndDate], 
+  ISNULL (p.[Status], 'Outdated') AS [Product Status]
+FROM 
+  dbo.DimProduct AS p
+  LEFT JOIN dbo.DimProductSubcategory AS ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey
+  LEFT JOIN dbo.DimProductCategory AS pc ON ps.ProductCategoryKey = pc.ProductCategoryKey
+ORDER BY
+  p.ProductKey ASC
+```
+
+#### FACT_InternetSales:
+```SQL
+-- Cleaning FactInternetSales table --
+SELECT 
+  [ProductKey], 
+  [OrderDateKey], 
+  [DueDateKey], 
+  [ShipDateKey], 
+  [CustomerKey], 
+  -- [PromotionKey], 
+  -- [CurrencyKey], 
+  -- [SalesTerritoryKey], 
+  [SalesOrderNumber], 
+  -- [SalesOrderLineNumber], 
+  -- [RevisionNumber], 
+  -- [OrderQuantity], 
+  -- [UnitPrice], 
+  -- [ExtendedAmount], 
+  -- [UnitPriceDiscountPct], 
+  -- [DiscountAmount], 
+  -- [ProductStandardCost], 
+  -- [TotalProductCost], 
+  [SalesAmount]
+  -- [TaxAmt], 
+  -- [Freight], 
+  -- [CarrierTrackingNumber], 
+  -- [CustomerPONumber], 
+  -- [OrderDate], 
+  -- [DueDate], 
+  -- [ShipDate],
+FROM 
+  [AdventureWorksDW2019].[dbo].[FactInternetSales]
+WHERE
+  LEFT (OrderDateKey, 4) >= YEAR(GETDATE()) - 2 --- controlling on having only 2 years back in time for analysis 
+ORDER BY 
+OrderDateKey ASC 
+```
