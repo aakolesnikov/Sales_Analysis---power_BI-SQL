@@ -52,7 +52,7 @@ SELECT
   c.firstname AS [FirstName], 
   -- [MiddleName], 
   c.lastname AS [LastName], 
-  c.firstname + ' ' + c.lastname AS [Full Name], --- combining first and lst name
+  c.firstname + ' ' + c.lastname AS [Full Name], --- combining first and last name
   -- [NameStyle], 
   -- [BirthDate], 
   -- [MaritalStatus], 
