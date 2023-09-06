@@ -20,23 +20,13 @@ SQL queries for cleaning and transformation necessary data are represented below
 SELECT 
   [DateKey], 
   [FullDateAlternateKey] AS Date, 
-  -- [DayNumberOfWeek], 
   [EnglishDayNameOfWeek] AS Day, 
-  -- [SpanishDayNameOfWeek], 
-  -- [FrenchDayNameOfWeek], 
-  -- [DayNumberOfMonth], 
-  -- [DayNumberOfYear], 
   [WeekNumberOfYear] AS WeekNr, 
   [EnglishMonthName] AS Month, 
   LEFT([EnglishMonthName], 3) AS MonthShort, 
-  -- [SpanishMonthName], 
-  -- [FrenchMonthName], 
   [MonthNumberOfYear] AS MonthNo, 
   [CalendarQuarter] AS Quarter, 
   [CalendarYear] AS Year -- [CalendarSemester], 
-  -- [FiscalQuarter], 
-  -- [FiscalYear], 
-  -- [FiscalSemester]
 FROM 
   [AdventureWorksDW2019].[dbo].[DimDate] 
 WHERE 
@@ -47,35 +37,11 @@ WHERE
 -- Cleaning DimCustomer table -- 
 SELECT 
   c.customerkey AS [CustomerKey], 
-  -- [GeographyKey], 
-  -- [CustomerAlternateKey], 
-  -- [Title], 
   c.firstname AS [FirstName], 
-  -- [MiddleName], 
   c.lastname AS [LastName], 
   c.firstname + ' ' + c.lastname AS [Full Name], --- combining first and last name
-  -- [NameStyle], 
-  -- [BirthDate], 
-  -- [MaritalStatus], 
-  -- [Suffix], 
   CASE c.gender WHEN 'M' THEN 'Male' WHEN 'F' THEN 'Female' END AS Gender, 
-  -- [EmailAddress], 
-  -- [YearlyIncome], 
-  -- [TotalChildren], 
-  -- [NumberChildrenAtHome], 
-  -- [EnglishEducation], 
-  -- [SpanishEducation], 
-  -- [FrenchEducation], 
-  -- [EnglishOccupation], 
-  -- [SpanishOccupation], 
-  -- [FrenchOccupation], 
-  -- [HouseOwnerFlag], 
-  -- [NumberCarsOwned], 
-  -- [AddressLine1], 
-  -- [AddressLine2], 
-  -- [Phone], 
   c.datefirstpurchase AS [DateFirstPurchase], 
-  -- [CommuteDistance]
   g.city AS [CustomerCity] -- joined [CustomerCity] from Geography Table
 FROM 
   dbo.DimCustomer AS c
@@ -89,42 +55,15 @@ ORDER BY
 -- Cleaning DimProduct table -- 
 SELECT 
   p.[ProductKey], 
-  p.[ProductAlternateKey] AS ProductItemCode, 
-  -- [ProductSubcategoryKey], 
-  -- [WeightUnitMeasureCode], 
-  -- [SizeUnitMeasureCode], 
+  p.[ProductAlternateKey] AS ProductItemCode,  
   p.[EnglishProductName] AS [Product Name],
   ps.EnglishProductSubcategoryName AS [Sub Category], --- joined from DimProductSubcategory
   pc.EnglishProductCategoryName AS [Category], --- joined from DimProductCategory
-  -- [SpanishProductName], 
-  -- [FrenchProductName], 
-  -- [StandardCost], 
-  -- [FinishedGoodsFlag], 
   p.[Color] AS [Product Color],
-  -- [SafetyStockLevel], 
-  -- [ReorderPoint], 
-  -- [ListPrice], 
   p.[Size] AS [Product Size], 
-  -- [SizeRange], 
-  -- [Weight], 
-  -- [DaysToManufacture], 
-  p.[ProductLine] AS [Product Line], 
-  -- [DealerPrice], 
-  -- [Class], 
-  -- [Style], 
+  p.[ProductLine] AS [Product Line],  
   p.[ModelName] AS [Product Model Name], 
-  -- [LargePhoto], 
-  p.[EnglishDescription] AS [Product Description], 
-  -- [FrenchDescription], 
-  -- [ChineseDescription], 
-  -- [ArabicDescription], 
-  -- [HebrewDescription], 
-  -- [ThaiDescription], 
-  -- [GermanDescription], 
-  -- [JapaneseDescription], 
-  -- [TurkishDescription], 
-  -- [StartDate], 
-  -- [EndDate], 
+  p.[EnglishDescription] AS [Product Description],  
   ISNULL (p.[Status], 'Outdated') AS [Product Status]
 FROM 
   dbo.DimProduct AS p
@@ -143,27 +82,8 @@ SELECT
   [DueDateKey], 
   [ShipDateKey], 
   [CustomerKey], 
-  -- [PromotionKey], 
-  -- [CurrencyKey], 
-  -- [SalesTerritoryKey], 
   [SalesOrderNumber], 
-  -- [SalesOrderLineNumber], 
-  -- [RevisionNumber], 
-  -- [OrderQuantity], 
-  -- [UnitPrice], 
-  -- [ExtendedAmount], 
-  -- [UnitPriceDiscountPct], 
-  -- [DiscountAmount], 
-  -- [ProductStandardCost], 
-  -- [TotalProductCost], 
   [SalesAmount]
-  -- [TaxAmt], 
-  -- [Freight], 
-  -- [CarrierTrackingNumber], 
-  -- [CustomerPONumber], 
-  -- [OrderDate], 
-  -- [DueDate], 
-  -- [ShipDate],
 FROM 
   [AdventureWorksDW2019].[dbo].[FactInternetSales]
 WHERE
